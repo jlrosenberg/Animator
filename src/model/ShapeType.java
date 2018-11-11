@@ -2,5 +2,16 @@ package model;
 
 public enum ShapeType {
 
-    RECTANGLE, ELLIPSE
+    RECTANGLE("Rectangle"), ELLIPSE("Ellipse");
+
+    private String value;
+
+    ShapeType(String toString){
+        value=toString;
+    }
+
+    public String toString(){
+        return value;
+    }
+
 }

@@ -1,84 +1,38 @@
 package model;
 
+import java.util.Objects;
+
 public class KeyFrame {
-    private double height;
-    private double width;
-    private double r;
-    private double b;
-    private double g;
-    private double x;
-    private double y;
+    private ShapeState state;
     private int tick;
 
 
-    public KeyFrame(double width, double height, double r, double b, double g, double x, double y, int tick) {
-        this.height = height;
-        this.width = width;
-        this.r = r;
-        this.b = b;
-        this.g = g;
-        this.x = x;
-        this.y = y;
+    public KeyFrame(int tick, int x, int y, int r, int b, int g, int width, int height){
+        state=new ShapeState(x,  y, r, b, g, width, height);
         this.tick=tick;
     }
 
-    public double getHeight() {
-        return height;
+
+    public ShapeState getShapeState(){
+        return state;
     }
 
-    public void setHeight(double height) {
-        this.height = height;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        KeyFrame keyFrame = (KeyFrame) o;
+        return tick == keyFrame.tick &&
+                Objects.equals(state, keyFrame.state);
     }
 
-    public double getWidth() {
-        return width;
+    @Override
+    public int hashCode() {
+        return Objects.hash(state, tick);
     }
 
-    public void setWidth(double width) {
-        this.width = width;
-    }
-
-    public double getR() {
-        return r;
-    }
-
-    public void setR(double r) {
-        this.r = r;
-    }
-
-    public double getB() {
-        return b;
-    }
-
-    public void setB(double b) {
-        this.b = b;
-    }
-
-    public double getG() {
-        return g;
-    }
-
-    public void setG(double g) {
-        this.g = g;
-    }
-
-    public double getX() {
-        return x;
-    }
-
-    public void setX(double x) {
-        this.x = x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
-    public void setY(double y) {
-        this.y = y;
-    }
-
-    public int getTick(){
+    public int getTick() {
         return tick;
     }
 }
+
