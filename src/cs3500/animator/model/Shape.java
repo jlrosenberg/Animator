@@ -37,6 +37,11 @@ public class Shape implements IShape {
             throw new IllegalArgumentException("A Keyframe at time +"+k.getTick()+" already exists");
         }
 
+        if(keyFrames.size()==0){
+            this.addMotion(new Motion(k, k));
+            return;
+        }
+
         try{
             Motion toSplit = getMotionInAction(k.getTick());
             Motion new1=new Motion(toSplit.getStart(), k);

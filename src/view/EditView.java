@@ -67,7 +67,15 @@ public class EditView extends JFrame implements View {
     private void showKeyframeCreator(String s){
         //TODO Make a dialog for creating a keyframe...
         //Parameter s is the name of the shape that we are adding a shape to.
-        c.addKeyFrame(s, 100, 100,100,100,100,100,100,100);
+        //c.addKeyFrame(s, 100, 100,100,100,100,100,100,100);
+        KeyFrameRunnable kr=new KeyFrameRunnable() {
+            @Override
+            public void run(int tick, int x, int y, int r, int g, int b, int width, int height) {
+                c.addKeyFrame(s, tick, x, y, r, g, b, width, height);
+            }
+        };
+        KeyFrameEditorDialog k=new KeyFrameEditorDialog(kr);
+        k.setVisible(true);
     }
 
     public void displayAddKeyFrameDialog(List<String> shapeNames){
