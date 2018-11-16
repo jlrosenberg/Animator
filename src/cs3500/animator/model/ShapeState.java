@@ -1,4 +1,4 @@
-package model;
+package cs3500.animator.model;
 
 import java.util.Objects;
 
@@ -11,7 +11,7 @@ public class ShapeState {
     private double x;
     private double y;
 
-    public ShapeState(double height, double width, double r, double b, double g, double x, double y) {
+    public ShapeState(double x, double y, double r, double g, double b, double width, double height) {
         this.height = height;
         this.width = width;
         this.r = r;

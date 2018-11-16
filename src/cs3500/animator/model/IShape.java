@@ -1,6 +1,7 @@
-package model;
+package cs3500.animator.model;
 
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -54,7 +55,7 @@ public interface IShape {
      *
      * @return A map of all of this Shape's {@link KeyFrame}
      */
-    Map<Integer, KeyFrame> getKeyFrames();
+    List<KeyFrame> getKeyFrames();
 
     /**
      * Gets this shapes type enum.
@@ -62,6 +63,14 @@ public interface IShape {
      * @return the enum ShapeType of this shape.
      */
     ShapeType getShapeType();
+
+    /**
+     * Returns a list of this shapes Motion objects, ordered by start time. The list will always contain a continuous
+     * flow of back to back motions.
+     *
+     * @return a list of this Shape's motion objects
+     */
+    List<Motion> getMotions();
 
     //boolean isVisible();
 
